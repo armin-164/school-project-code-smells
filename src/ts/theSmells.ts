@@ -84,27 +84,9 @@ function createProductElements(product: IProduct): HTMLElement {
   return container;
 }
 
-function showProduct(
-  name: string,
-  price: number,
-  amount: number,
-  description: string,
-  image: string,
-  parent: HTMLElement
-) {
-  let container = document.createElement("div");
-  let title = document.createElement("h4");
-  let pris = document.createElement("strong");
-  let imageTag = document.createElement("img");
-
-  title.innerHTML = name;
-  pris.innerHTML = price.toString();
-  imageTag.src = image;
-
-  container.appendChild(title);
-  container.appendChild(imageTag);
-  container.appendChild(pris);
-  parent.appendChild(container);
+function showProduct(product: IProduct, parent: HTMLElement) {
+  const productContainer = createProductElements(product);
+  parent.appendChild(productContainer);
 }
 
 /*
