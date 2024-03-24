@@ -4,14 +4,10 @@
   dessa hopplängder.
   */
 
-function getLength(jumpings: number[]): number {
-  let totalNumber = 0;
-
-  totalNumber = jumpings.reduce(
+function totalJumpingDistance(jumpings: number[]): number {
+  return jumpings.reduce(
     (jumpDistanceSoFar, currentJump) => jumpDistanceSoFar + currentJump
   );
-
-  return totalNumber;
 }
 
 /*
