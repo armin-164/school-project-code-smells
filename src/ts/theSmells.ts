@@ -69,6 +69,21 @@ interface IProduct {
   image: string;
 }
 
+function createProductElements(product: IProduct): HTMLElement {
+  const container = document.createElement("div");
+  const title = document.createElement("h4");
+  const price = document.createElement("strong");
+  const imageTag = document.createElement("img");
+
+  title.innerText = product.name;
+  price.innerText = product.price.toString();
+  imageTag.src = product.image;
+
+  container.append(title, price, imageTag)
+
+  return container;
+}
+
 function showProduct(
   name: string,
   price: number,
