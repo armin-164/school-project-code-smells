@@ -128,21 +128,22 @@ function concatenateStrings() {
     fler och fler parametrar behöver läggas till? T.ex. avatar eller adress. Hitta en bättre
     lösning som är hållbar och skalar bättre. 
 */
-function createUser(
+interface IUser {
   name: string,
   birthday: Date,
   email: string,
   password: string
-) {
-  // Validation
+}
 
-  let ageDiff = Date.now() - birthday.getTime();
+function createUser(user: IUser) {
+  // Validation
+  let ageDiff = Date.now() - user.birthday.getTime();
   let ageDate = new Date(ageDiff);
   let userAge = Math.abs(ageDate.getUTCFullYear() - 1970);
 
   console.log(userAge);
 
-  if (!(userAge < 20)) {
+  if (userAge > 20) {
     // Logik för att skapa en användare
   } else {
     return "Du är under 20 år";
