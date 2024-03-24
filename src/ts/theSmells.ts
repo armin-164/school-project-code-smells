@@ -45,12 +45,11 @@ class temperatureData {
 
 function averageWeeklyTemperature(data: temperatureData[]) {
   let averageTemperature = 0;
+  const aWeekAgo = Date.now() - 604800000;
 
   for (let i = 0; i < data.length; i++) {
-    if (data[i].city === "Stockholm") {
-      if (data[i].timestamp.getTime() > Date.now() - 604800000) {
-        averageTemperature += data[i].degrees;
-      }
+    if (data[i].city === "Stockholm" && data[i].timestamp.getTime() > aWeekAgo) {
+      averageTemperature += data[i].degrees;
     }
   }
 
