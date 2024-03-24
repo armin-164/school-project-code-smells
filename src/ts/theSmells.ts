@@ -31,11 +31,7 @@ function getStudentStatus(student: Student): string {
     student.passed = false;
   }
 
-  if (student.passed) {
-    return "VG";
-  } else {
-    return "IG";
-  }
+  return student.passed ? "VG" : "IG";  
 }
 
 /*
