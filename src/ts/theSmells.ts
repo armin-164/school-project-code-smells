@@ -61,6 +61,14 @@ function averageWeeklyTemperature(data: temperatureData[]) {
   Se om du kan göra det bättre. Inte bara presentationen räknas, även strukturer.
   */
 
+interface IProduct {
+  name: string;
+  price: number;
+  amount: number;
+  description: string;
+  image: string;
+}
+
 function showProduct(
   name: string,
   price: number,
