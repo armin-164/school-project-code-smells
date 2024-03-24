@@ -23,12 +23,13 @@ class Student {
 }
 
 function getStudentStatus(student: Student): string {
-  student.passed =
-    student.name == "Sebastian"
-      ? student.handedInOnTime
-        ? true
-        : false
-      : false;
+  if (student.name === "Sebastian" && student.handedInOnTime) {
+    student.passed = true;
+  }
+
+  else {
+    student.passed = false;
+  }
 
   if (student.passed) {
     return "VG";
