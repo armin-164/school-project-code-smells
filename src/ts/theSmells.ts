@@ -39,23 +39,23 @@ function getStudentStatus(student: Student): string {
   Det finns flera code smells att identifiera här. Vissa är lurigare än andra.
   */
 
-class Temp {
-  constructor(public q: string, public where: Date, public v: number) {}
+class temperatureData {
+  constructor(public city: string, public timestamp: Date, public degrees: number) {}
 }
 
-function averageWeeklyTemperature(heights: Temp[]) {
-  let r = 0;
+function averageWeeklyTemperature(data: temperatureData[]) {
+  let averageTemperature = 0;
 
-  for (let who = 0; who < heights.length; who++) {
-    if (heights[who].q === "Stockholm") {
-      if (heights[who].where.getTime() > Date.now() - 604800000) {
-        r += heights[who].v;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].city === "Stockholm") {
+      if (data[i].timestamp.getTime() > Date.now() - 604800000) {
+        averageTemperature += data[i].degrees;
       }
     }
   }
 
-  return r / 7;
-}
+  return averageTemperature / 7;
+}  
 
 /*
   4. Följande funktion kommer att presentera ett objekt i dom:en. 
