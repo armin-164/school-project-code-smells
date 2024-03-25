@@ -181,16 +181,21 @@ export function sortProductsBy(sort: Sort, products: Product[]): Product[] {
   products.forEach((product) => copiedList.push(product));
 
   let sortedList: Product[] = [];
-  if (sort === Sort.PRICE_ASCENDING) {
-    sortedList = sortList("Price", copiedList);
-    sortedList.reverse();
-  } else if (sort === Sort.PRICE_DECENDING) {
-    sortedList = sortList("Price", copiedList);
-  } else if (sort === Sort.NAME_ALPHABETIC) {
-    sortedList = sortList("Name", copiedList);
-  } else if (sort === Sort.NAME_ALPHABETIC_REVERSE) {
-    sortedList = sortList("Name", copiedList);
-    sortedList.reverse();
+  switch (sort) {
+    case Sort.PRICE_ASCENDING:
+      sortedList = sortList("Price", copiedList);
+      sortedList.reverse();
+      break;
+    case Sort.PRICE_DECENDING:
+      sortedList = sortList("Price", copiedList);
+      break;
+    case Sort.NAME_ALPHABETIC:
+      sortedList = sortList("Name", copiedList);
+      break;
+    case Sort.NAME_ALPHABETIC_REVERSE:
+      sortedList = sortList("Name", copiedList);
+      sortedList.reverse();
+      break;
   }
 
   return sortedList;
