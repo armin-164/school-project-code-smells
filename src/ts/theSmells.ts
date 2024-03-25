@@ -238,6 +238,13 @@ class Cart {
 export let cartList = JSON.parse(localStorage.getItem("savedCartList") || "[]");
 export let productList = JSON.parse(localStorage.getItem("savedList") || "[]");
 
+
+function createProductElementsAndAppendToCategory(product: HTMLElement, category: string) {
+  let cat: HTMLElement = document.getElementById(category) as HTMLElement;
+  product.className = "dogproduct";
+  cat.appendChild(product);
+}
+
 export function createProductHtml() {
   let quantity = 0;
 
@@ -306,32 +313,22 @@ export function createProductHtml() {
       cart.addToCart(i);
     });
 
-    if (productList[i].category === "sassy") {
-      let cat1: HTMLElement = document.getElementById("sassy") as HTMLElement;
-      dogproduct.className = "dogproduct";
-      cat1.appendChild(dogproduct);
-    }
-    if (productList[i].category === "kriminella") {
-      let cat2: HTMLElement = document.getElementById(
-        "kriminella"
-      ) as HTMLElement;
-      dogproduct.className = "dogproduct";
-      cat2.appendChild(dogproduct);
-    }
-    if (productList[i].category == "singlar") {
-      let cat3: HTMLElement = document.getElementById("singlar") as HTMLElement;
-      dogproduct.className = "dogproduct";
-      cat3.appendChild(dogproduct);
-    }
-    if (productList[i].category === "puppy") {
-      let cat4: HTMLElement = document.getElementById("puppy") as HTMLElement;
-      dogproduct.className = "dogproduct";
-      cat4.appendChild(dogproduct);
-    }
-    if (productList[i].category === "oldies") {
-      let cat5: HTMLElement = document.getElementById("oldies") as HTMLElement;
-      dogproduct.className = "dogproduct";
-      cat5.appendChild(dogproduct);
+    switch (productList[i].category) {
+      case "sassy":
+        createProductElementsAndAppendToCategory(dogproduct, "sassy");
+        break;
+      case "kriminella":
+        createProductElementsAndAppendToCategory(dogproduct, "kriminella");
+        break;
+      case "singlar":
+        createProductElementsAndAppendToCategory(dogproduct, "singlar");
+        break;
+      case "puppy":
+        createProductElementsAndAppendToCategory(dogproduct, "puppy");
+        break;
+      case "oldies":
+        createProductElementsAndAppendToCategory(dogproduct, "oldies");
+        break;
     }
   }
   let listastext = JSON.stringify(productList);
