@@ -416,7 +416,7 @@ function getFromStorage() {
   }
 
   let totalprice2: HTMLTableCellElement = document.createElement("th");
-  checkkouttotal2.appendChild(totalprice2);
+  checkoutTotal.appendChild(totalprice2);
   totalprice2.innerHTML = addition + "$";
   totalprice2.id = "totalincenter";
 }
