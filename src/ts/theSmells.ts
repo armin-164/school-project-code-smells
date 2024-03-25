@@ -349,7 +349,7 @@ export class CartProduct {
   ) {}
 }
 
-function getfromstorage() {
+function getFromStorage() {
   let container = document.getElementById("checkout-table");
 
   let fromstorage: string = localStorage.getItem("cartArray") || "";
