@@ -204,21 +204,29 @@ export function sortProductsBy(sort: Sort, products: Product[]): Product[] {
 function sortList(whichAttribute: string, products: Product[]): Product[] {
   return products.sort((p1, p2) => {
     if (whichAttribute === "Price") {
-      if (p1.price < p2.price) {
-        return 1;
-      } else if (p1.price > p2.price) {
-        return -1;
-      }
-      return 0;
+      return comparePrices(p1.price, p2.price);
     } else {
-      if (p1.name < p2.name) {
-        return 1;
-      } else if (p1.name > p2.name) {
-        return -1;
-      }
-      return 0;
+      return compareNames(p1.name, p2.name);
     }
   });
+}
+
+function comparePrices(price1: number, price2: number): number {
+  if (price1 < price2) {
+    return 1;
+  } else if (price1 > price2) {
+    return -1;
+  }
+  return 0;
+}
+
+function compareNames(name1: string, name2: string): number {
+  if (name1 < name2) {
+    return 1;
+  } else if (name1 > name2) {
+    return -1;
+  }
+  return 0;
 }
 
 /*
