@@ -300,10 +300,11 @@ export function createProductHtml() {
     dogproduct.appendChild(info);
 
     productList[i].productSpec = false;
+    const PRODUCT_SPEC_PAGE_URL = "product-spec.html#backArrow";
 
     dogImg.addEventListener("click", () => {
       productList[i].productSpec = !productList[i].productSpec;
-      window.location.href = "product-spec.html#backArrow";
+      window.location.href = PRODUCT_SPEC_PAGE_URL;
       let listastext = JSON.stringify(productList);
       localStorage.setItem("savedList", listastext);
     });
