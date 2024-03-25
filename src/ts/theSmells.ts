@@ -371,6 +371,10 @@ function getFromStorage() {
     "title-total"
   ) as HTMLTableCellElement;
 
+  amountCheckoutContainer.innerHTML = "<th>amount:</th>";
+  titleContainer.innerHTML = "<strong>products:</strong>";
+  productQuantity.innerHTML = "<th>change quantity:</th>";
+  checkoutTotal.innerHTML = "<th>total:</th>";
 
   for (let i: number = 0; i < astext.length; i++) {
     let productt: HTMLTableCellElement = document.createElement("th");
