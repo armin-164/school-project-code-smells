@@ -240,9 +240,11 @@ export let productList = JSON.parse(localStorage.getItem("savedList") || "[]");
 
 export function createProductHtml() {
   let quantity = 0;
-  for (let i = 0; i < cartList.length; i++) {
-    quantity += cartList[i].quantity;
+
+  for (const item of cartList) {
+    quantity += item.quantity;
   }
+  
   let floatingCart = document.getElementById(
     "floatingcartnumber"
   ) as HTMLElement;
