@@ -376,37 +376,38 @@ function getFromStorage() {
   productQuantity.innerHTML = "<th>change quantity:</th>";
   checkoutTotal.innerHTML = "<th>total:</th>";
 
-  for (let i: number = 0; i < astext.length; i++) {
-    let productt: HTMLTableCellElement = document.createElement("th");
-    titlecontainer.appendChild(productt);
-    productt.innerHTML = astext[i].name;
-    productt.className = "hej";
+  astext.forEach((product) => {
+    const productCell = document.createElement("th");
+    productCell.innerHTML = `${product.name}`;
+    productCell.className = "hej";
+    titleContainer.appendChild(productCell);
 
-    let amountt: HTMLTableCellElement = document.createElement("th");
-    amountcontainer.appendChild(amountt);
-    amountt.innerHTML = "x" + astext[i].amount;
-    amountt.className = "hej";
+    const amountCell = document.createElement("th");
+    amountCell.innerHTML = `x${product.amount}`;
+    amountCell.className = "hej";
+    amountCheckoutContainer.appendChild(amountCell);
 
-    let amountqt: HTMLTableCellElement = document.createElement("th");
-    productquantity.appendChild(amountqt);
-    let amountplusbtn: HTMLButtonElement = document.createElement("button");
-    amountqt.appendChild(amountplusbtn);
-    amountqt.className = "hej";
+    const quantityCell = document.createElement("th");
+    productQuantity.appendChild(quantityCell);
 
-    let icon: HTMLSpanElement = document.createElement("i");
-    amountplusbtn.appendChild(icon);
+    const iconPlus: HTMLSpanElement = document.createElement("i");
+    iconPlus.className = "fas fa-plus";
 
-    icon.className = "fas fa-minus";
-    amountplusbtn.className = "plusbtn";
+    const iconMinus: HTMLSpanElement = document.createElement("i");
+    iconMinus.className = "fas fa-minus";
 
-    let icon2: HTMLSpanElement = document.createElement("i");
-    icon2.className = "fas fa-plus";
+    
+    const plusButton = document.createElement("button");
+    plusButton.className = "plusbtn";
+    plusButton.appendChild(iconPlus);
+    quantityCell.appendChild(plusButton);
 
-    let amountminusbtn: HTMLButtonElement = document.createElement("button");
-    amountqt.appendChild(amountminusbtn);
-    amountminusbtn.appendChild(icon2);
-    amountminusbtn.className = "minusbtn";
-  }
+    const minusButton = document.createElement("button");
+    minusButton.className = "minusbtn";
+    minusButton.appendChild(iconMinus);
+    quantityCell.appendChild(minusButton);
+
+  });
 
   let addition: number = 0;
 
