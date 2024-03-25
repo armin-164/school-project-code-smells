@@ -409,14 +409,14 @@ function getFromStorage() {
 
   });
 
-  let addition: number = 0;
+  let totalCost: number = 0;
 
   for (let i = 0; i < astext.length; i++) {
-    addition += astext[i].price *= astext[i].amount;
+    totalCost += astext[i].price *= astext[i].amount;
   }
 
   let totalprice2: HTMLTableCellElement = document.createElement("th");
   checkoutTotal.appendChild(totalprice2);
-  totalprice2.innerHTML = addition + "$";
+  totalprice2.innerHTML = totalCost + "$";
   totalprice2.id = "totalincenter";
 }
