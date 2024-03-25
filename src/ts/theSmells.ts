@@ -248,7 +248,8 @@ export function createProductHtml() {
   let floatingCart = document.getElementById(
     "floatingcartnumber"
   ) as HTMLElement;
-  floatingCart.innerHTML = "" + quantity;
+
+  floatingCart.innerText = `${quantity}`;
 
   for (let i = 0; i < productList.length; i++) {
     let dogproduct: HTMLDivElement = document.createElement("div");
