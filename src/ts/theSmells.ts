@@ -239,7 +239,7 @@ export let cartList = JSON.parse(localStorage.getItem("savedCartList") || "[]");
 export let productList = JSON.parse(localStorage.getItem("savedList") || "[]");
 
 
-function createProductElementsAndAppendToCategory(product: HTMLElement, category: string) {
+function appendProductToCategory(product: HTMLElement, category: string) {
   let cat: HTMLElement = document.getElementById(category) as HTMLElement;
   product.className = "dogproduct";
   cat.appendChild(product);
@@ -316,19 +316,19 @@ export function createProductHtml() {
 
     switch (productList[i].category) {
       case "sassy":
-        createProductElementsAndAppendToCategory(dogproduct, "sassy");
+        appendProductToCategory(dogproduct, "sassy");
         break;
       case "kriminella":
-        createProductElementsAndAppendToCategory(dogproduct, "kriminella");
+        appendProductToCategory(dogproduct, "kriminella");
         break;
       case "singlar":
-        createProductElementsAndAppendToCategory(dogproduct, "singlar");
+        appendProductToCategory(dogproduct, "singlar");
         break;
       case "puppy":
-        createProductElementsAndAppendToCategory(dogproduct, "puppy");
+        appendProductToCategory(dogproduct, "puppy");
         break;
       case "oldies":
-        createProductElementsAndAppendToCategory(dogproduct, "oldies");
+        appendProductToCategory(dogproduct, "oldies");
         break;
     }
   }
