@@ -355,35 +355,22 @@ function getFromStorage() {
   let fromstorage: string = localStorage.getItem("cartArray") || "";
   let astext: CartProduct[] = JSON.parse(fromstorage);
 
-  let productcontainer = document.getElementById(
+  const productCheckoutContainer = document.getElementById(
     "product-ckeckout-container"
   ) as HTMLDivElement;
-
-  let amountcontainer = document.getElementById(
+  const amountCheckoutContainer = document.getElementById(
     "amount-checkout-container2"
   ) as HTMLDivElement;
-  let amounttext: HTMLTableCellElement = document.createElement("th");
-  amountcontainer.appendChild(amounttext);
-  amounttext.innerHTML = "amount:";
-
-  let titlecontainer = document.getElementById(
+  const titleContainer = document.getElementById(
     "title-container"
   ) as HTMLTableRowElement;
-  titlecontainer.innerHTML = "<strong>products:</strong>";
-
-  let productquantity = document.getElementById(
+  const productQuantity = document.getElementById(
     "product-quantity"
   ) as HTMLTableRowElement;
-  let qttext: HTMLTableCellElement = document.createElement("th");
-  productquantity.appendChild(qttext);
-  qttext.innerHTML = "change quantity:";
-
-  let checkkouttotal2 = document.getElementById(
+  const checkoutTotal = document.getElementById(
     "title-total"
   ) as HTMLTableCellElement;
-  let totaltext: HTMLTableCellElement = document.createElement("th");
-  checkkouttotal2.appendChild(totaltext);
-  totaltext.innerHTML = "total:";
+
 
   for (let i: number = 0; i < astext.length; i++) {
     let productt: HTMLTableCellElement = document.createElement("th");
